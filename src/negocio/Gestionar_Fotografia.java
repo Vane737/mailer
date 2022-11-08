@@ -39,7 +39,7 @@ public class Gestionar_Fotografia {
         this.id = Integer.parseInt(vector[0].trim());
         this.direccion = vector[1].trim();
         this.nombre  = vector[2].trim();
-        this.fecha = vector[4].trim();
+        this.fecha = vector[3].trim();
         this.idInmueble = Integer.parseInt(vector[5].trim());
 
     }
