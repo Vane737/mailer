@@ -32,8 +32,6 @@ public class Gestionar_Estado {
         vector=patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
-//        this.estado = vector[2].trim();
-//        this.descripcion = vector[3].trim();
     }
 
     public int InsertarEstado() {
@@ -56,7 +54,7 @@ public class Gestionar_Estado {
             ps.setInt(1, this.id);
             ps.setString(2, this.nombre);
             ps.setString(3, "1");
-            ps.setString(4, "DESCRIPCION");
+            ps.setString(4, "Descripcion Estado");
 
             int rows = ps.executeUpdate();
 
@@ -95,10 +93,10 @@ public class Gestionar_Estado {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Estados</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre</th><th style=background:orange;>Estado</th><th style=background:orange;>Descripcion</th>";
+                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td><td>" + rs.getString("estadoHabilitado") + "</td><td>" + rs.getString("descripcion") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -116,8 +114,6 @@ public class Gestionar_Estado {
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
-//        this.estado = vector[2].trim();
-//        this.descripcion = vector[3].trim();
 
     }
 
@@ -138,7 +134,7 @@ public class Gestionar_Estado {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.nombre);
             ps.setString(2, "1");
-            ps.setString(3, "DESCRIPCION MODIFICADA");
+            ps.setString(3, "Estado modificado");
             ps.setInt(4, this.id);
             int rows = ps.executeUpdate();
             // Cierro la conexion
