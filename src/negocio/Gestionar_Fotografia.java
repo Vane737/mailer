@@ -39,7 +39,6 @@ public class Gestionar_Fotografia {
         this.id = Integer.parseInt(vector[0].trim());
         this.direccion = vector[1].trim();
         this.nombre  = vector[2].trim();
-        this.detalle = vector[3].trim();
         this.fecha = vector[4].trim();
         this.idInmueble = Integer.parseInt(vector[5].trim());
 
@@ -63,7 +62,7 @@ public class Gestionar_Fotografia {
             ps.setInt(1, this.id);
             ps.setString(2, this.direccion);
             ps.setString(3, this.nombre);
-            ps.setString(4, this.detalle);
+            ps.setString(4, "Fotografia del inmueble");
             ps.setString(5, this.fecha);
             ps.setInt(6, this.idInmueble);
 
@@ -149,7 +148,6 @@ public class Gestionar_Fotografia {
         this.id = Integer.parseInt(vector[0].trim());
         this.direccion = vector[1].trim();
         this.nombre = vector[2].trim();
-        this.detalle = vector[3].trim();
         this.fecha = vector[4].trim();
         this.idInmueble = Integer.parseInt(vector[5].trim());
     }
@@ -173,7 +171,7 @@ public class Gestionar_Fotografia {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.direccion);
             ps.setString(2, this.nombre);
-            ps.setString(3, this.detalle);
+            ps.setString(3, "Fotografia del inmueble");
             ps.setString(4, this.fecha);
             ps.setInt(5, this.idInmueble);
             ps.setInt(6, this.id);
