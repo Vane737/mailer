@@ -32,10 +32,8 @@ public class Gestionar_Estado {
         vector=patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
-        this.estado = vector[2].trim();
-        this.descripcion = vector[3].trim();
-        
-
+//        this.estado = vector[2].trim();
+//        this.descripcion = vector[3].trim();
     }
 
     public int InsertarEstado() {
@@ -47,8 +45,8 @@ public class Gestionar_Estado {
 
         // Preparo la consulta
         String sql = "INSERT INTO estados(\n"
-                + "	id, nombre, estadoHabilitado, descripcion)\n"
-                + "	VALUES (?,?,?,?);";
+                + "	id, nombre, \"estadoHabilitado\", descripcion)\n"
+                + "	VALUES (?, ?, ?, ?);";
 
         try {
             // La ejecuto
@@ -57,8 +55,8 @@ public class Gestionar_Estado {
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
             ps.setString(2, this.nombre);
-            ps.setString(3, this.estado);
-            ps.setString(4, this.descripcion);
+            ps.setString(3, "1");
+            ps.setString(4, "DESCRIPCION");
 
             int rows = ps.executeUpdate();
 
@@ -118,8 +116,8 @@ public class Gestionar_Estado {
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
-        this.estado = vector[2].trim();
-        this.descripcion = vector[3].trim();
+//        this.estado = vector[2].trim();
+//        this.descripcion = vector[3].trim();
 
     }
 
@@ -132,15 +130,15 @@ public class Gestionar_Estado {
         // Preparo la consulta
         String sql = "UPDATE estados SET \n"
                 + "nombre = ?, \n"
-                + "estadoHabilitado = ? ,\n"
+                + "\"estadoHabilitado\" = ? ,\n"
                 + "descripcion = ? \n"
                 + "WHERE id = ?";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.nombre);
-            ps.setString(2, this.estado);
-            ps.setString(3, this.descripcion);
+            ps.setString(2, "1");
+            ps.setString(3, "DESCRIPCION MODIFICADA");
             ps.setInt(4, this.id);
             int rows = ps.executeUpdate();
             // Cierro la conexion
