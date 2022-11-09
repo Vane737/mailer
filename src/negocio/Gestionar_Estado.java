@@ -53,7 +53,7 @@ public class Gestionar_Estado {
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
             ps.setString(2, this.nombre);
-            ps.setString(3, "1");
+            ps.setString(3, "Si");
             ps.setString(4, "Descripcion Estado");
 
             int rows = ps.executeUpdate();
@@ -93,7 +93,7 @@ public class Gestionar_Estado {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Estados</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Nombre</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td></tr>";
@@ -133,7 +133,7 @@ public class Gestionar_Estado {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.nombre);
-            ps.setString(2, "1");
+            ps.setString(2, "Si");
             ps.setString(3, "Estado modificado");
             ps.setInt(4, this.id);
             int rows = ps.executeUpdate();

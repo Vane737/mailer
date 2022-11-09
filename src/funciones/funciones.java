@@ -269,7 +269,11 @@ public class funciones {
                     System.out.println("RESPONSABLE ELIMINADO ");
                     respuesta = "<b>RESPONSABLE ELIMINADO</b>";
                 } else {
+<<<<<<< Updated upstream
                     System.out.println("ERROR AL ELIMINAR RESPONSABLE");
+=======
+                    System.out.println("ERROR AL ELIMINAR GRUPO");
+>>>>>>> Stashed changes
                     respuesta = "<b>RESPONSABLE NO ELIMINADO</b>";
                 }
                 break;
@@ -412,6 +416,10 @@ public class funciones {
                         + "<br>";
 
                 break;
+            default:
+                respuesta = "<b>ERROR DE COMANDO: NO EXISTE EL COMANDO SOLICITADO</b>";
+                break;
+                
 
         }
         SMTPenviar smtp = new SMTPenviar();
