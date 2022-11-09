@@ -100,7 +100,7 @@ public class Gestionar_Inmueble {
             this.m_Conexion.cerrarConexion();
             
             res = "<table border=\"6\"><caption><b>Listado de Inmuebles</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID Inmueble</th><th style=background:orange;>Codigo</th><th style=background:orange;>Detalle</th><th style=background:orange;>Fecha Adquisicion</th><th style=background:orange;>Grupo</th><th style=background:orange;>Ubicacion</th><th style=background:orange;>Estado</th><th style=background:orange;>Responsable</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID Inmueble</th><th style=background:#8fe5f6;>Codigo</th><th style=background:#8fe5f6;>Detalle</th><th style=background:#8fe5f6;>Fecha Adquisicion</th><th style=background:#8fe5f6;>Grupo</th><th style=background:#8fe5f6;>Ubicacion</th><th style=background:#8fe5f6;>Estado</th><th style=background:#8fe5f6;>Responsable</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("codigo") + "</td><td>" + rs.getString("detalle") + "</td><td>" + rs.getString("fechaAdquisicion") + "</td><td>" + rs.getString("grupo") + "</td><td>" + rs.getString("ubicacion")+ "</td><td>" + rs.getString("estado")+ "</td><td>" + rs.getString("idResponsable")+ "</td></tr>";

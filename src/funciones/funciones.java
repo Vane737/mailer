@@ -115,7 +115,7 @@ public class funciones {
                 System.out.println("INSERTANDO DIRECCION");
                 ga.AsigParametros(pat);
                 if (-1 != ga.InsertarDireccion()) {
-                    respuesta = "<b>DIRECCION NUEVA INSERTADO</b>";
+                    respuesta = "<b>DIRECCION NUEVA INSERTADA</b>";
                 } else {
                     respuesta = "<b>ERROR AL INSERTAR DIRECCION</b>";
                 }
@@ -184,13 +184,13 @@ public class funciones {
                 System.out.println("INSERTANDO ADQUISICION");
                 gcom.AsigParametros(pat);
                 if (-1 != gcom.InsertarAdquisicion()) {
-                    respuesta = "<b>ADQUISICION NUEVA INSERTADO</b>";
+                    respuesta = "<b>ADQUISICION NUEVA INSERTADA</b>";
                 } else {
                     respuesta = "<b>ERROR AL INSERTAR ADQUISICION</b>";
                 }
                 break;
             case "LISTADQ":
-                System.out.println("LISTANDO ADQUISICIONES REGISTRADOS: \n" + gcom.ListarAdquisicion());
+                System.out.println("LISTANDO ADQUISICIONES REGISTRADAS: \n" + gcom.ListarAdquisicion());
                 respuesta = gcom.ListarAdquisicion();
                 break;
             case "ELIADQ":
@@ -200,7 +200,7 @@ public class funciones {
                     respuesta = "<b>ADQUISICION ELIMINADA</b>";
                 } else {
                     System.out.println("ERROR AL ELIMINAR ADQUISICION");
-                    respuesta = "<b>ADQUISICION NO ELIMINADO</b>";
+                    respuesta = "<b>ADQUISICION NO ELIMINADA</b>";
                 }
                 break;
             case "MODADQ":
@@ -269,18 +269,18 @@ public class funciones {
                     System.out.println("RESPONSABLE ELIMINADO ");
                     respuesta = "<b>RESPONSABLE ELIMINADO</b>";
                 } else {
-                    System.out.println("ERROR AL ELIMINAR GRUPO");
-                    respuesta = "<b>GRUPO NO ELIMINADO</b>";
+                    System.out.println("ERROR AL ELIMINAR RESPONSABLE");
+                    respuesta = "<b>RESPONSABLE NO ELIMINADO</b>";
                 }
                 break;
             case "MODRESP":
                 gr.AsigParametrosMod(pat);
                 if (-1 != gr.ModifResponsable()) {
-                    System.out.println("GRUPO MODIFICADO ");
-                    respuesta = "<b>GRUPO MODIFICADO</b>";
+                    System.out.println("RESPONSABLE MODIFICADO ");
+                    respuesta = "<b>RESPONSABLE MODIFICADO</b>";
                 } else {
-                    System.out.println("ERROR AL MODIFICAR GRUPO");
-                    respuesta = "<b>GRUPO NO MODIFICADO</b>";
+                    System.out.println("ERROR AL MODIFICAR RESPONSABLE");
+                    respuesta = "<b>RESPONSABLE NO MODIFICADO</b>";
                 }
                 break;
 ///GESTIONAR FOTOGRAFIA
@@ -288,7 +288,7 @@ public class funciones {
                 System.out.println("INSERTANDO FOTOGRAFIA");
                 gp.AsigParametros(pat);
                 if (-1 != gp.InsertarFotografia()) {
-                    respuesta = "<b>FOTOGRAFIA NUEVA INSERTADO</b>";
+                    respuesta = "<b>FOTOGRAFIA NUEVA INSERTADA</b>";
                 } else {
                     respuesta = "<b>ERROR AL INSERTAR FOTOGRAFIA</b>";
                 }
@@ -344,7 +344,7 @@ public class funciones {
             case "MODINMU":
                 gi.AsigParametrosMod(pat);
                 if (-1 != gi.ModifInmueble()) {
-                    System.out.println("INMUEBLE MODIFICADO ");
+                    System.out.println("INMUEBLE MODIFICADO");
                     respuesta = "<b>INMUEBLE MODIFICADO</b>";
                 } else {
                     System.out.println("ERROR AL MODIFICAR INMUEBLE");

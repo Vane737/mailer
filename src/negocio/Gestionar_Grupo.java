@@ -93,7 +93,7 @@ public class Gestionar_Grupo {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Lista de Servicio</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre del Grupo</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Nombre del Grupo</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td></tr>";

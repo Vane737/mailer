@@ -106,7 +106,7 @@ public class Gestionar_Revaluo {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Revaluos</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Fecha Revaluo</th><th style=background:orange;>Costo</th><th style=background:orange;>Costo Actualizado</th><th style=background:orange;>Depreciacion Acumulada</th><th style=background:orange;>Valor Neto</th><th style=background:orange;>ID Inmueble</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Fecha Revaluo</th><th style=background:#8fe5f6;>Costo</th><th style=background:#8fe5f6;>Costo Actualizado</th><th style=background:#8fe5f6;>Depreciacion Acumulada</th><th style=background:#8fe5f6;>Valor Neto</th><th style=background:#8fe5f6;>ID Inmueble</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("fechaRevaluo") + "</td><td>" + rs.getFloat("costo") + "</td><td>" + rs.getFloat("costoActualizado") + "</td><td>" + rs.getFloat("depreciacionAcumulada") + "</td><td>" + rs.getString("valorNeto") + "</td><td>" + rs.getString("idInmueble") + "</td></tr>";

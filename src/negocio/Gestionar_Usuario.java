@@ -111,7 +111,7 @@ public class Gestionar_Usuario {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Lista de Usuarios</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre</th><th style=background:orange;>CI</th><th style=background:orange;>Email</th><th style=background:orange;>Tipo Usuario</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Nombre</th><th style=background:#8fe5f6;>CI</th><th style=background:#8fe5f6;>Email</th><th style=background:#8fe5f6;>Tipo Usuario</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td><td>" + rs.getInt("ci") + "</td><td>" + rs.getString("email") + "</td><td>" + rs.getString("tipo_usuario") + "</td></tr>";
