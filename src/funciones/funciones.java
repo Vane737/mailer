@@ -353,7 +353,7 @@ public class funciones {
                 break;
             case "HELP":
                 respuesta
-                        = "<h1 style=\"color:tomato; text-align:center;\">Sistema de Gestión - Bien Inmueble</h1><br/>"
+                        = "<h1 style=\"color:#8fe5f6; text-align:center;\">Sistema Mail de Gestión - Bienes Inmuebles</h1><br/>"
                         + "<h3 style=\"color:black;\">Comandos:</h3><br/>"
                         + "<h3>1.- USUARIOS</h3><ol>"
                         + " <li>Listar:    LISTUSU[\"*\"] </li>"

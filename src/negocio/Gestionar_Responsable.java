@@ -135,7 +135,7 @@ public class Gestionar_Responsable {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, this.cod_asig);
             ps.setString(2, this.detalle);
-            ps.setInt(3, this.cod_asig);
+            ps.setInt(3, this.id);
             int rows = ps.executeUpdate();
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
