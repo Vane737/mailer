@@ -98,7 +98,7 @@ public class Gestionar_Direccion {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
 
-            res = "<table border=\"6\"><caption><b>Lista Asociacion</b></caption>\n"
+            res = "<table border=\"6\"><caption><b>Lista De Direcciones</b></caption>\n"
                     + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Ubicacion</th><th style=background:orange;>Lugar</th><th style=background:orange;>Edificio</th><th style=background:orange;>Latitud</th><th style=background:orange;>Longitud</th>";
             // Recorro el resultado
             while (rs.next()) {
