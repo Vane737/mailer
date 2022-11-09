@@ -94,7 +94,7 @@ public class Gestionar_Responsable {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Listado de Responsables</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Cod Asignacion</th><th style=background:orange;>Detalle</th>";
+                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Cod Administrativo</th><th style=background:orange;>Nombre</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("codigoAsignado") + "</td><td>" + rs.getString("detalle") + "</td></tr>";

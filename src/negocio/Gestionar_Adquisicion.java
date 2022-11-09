@@ -148,10 +148,10 @@ public class Gestionar_Adquisicion {
 
         // Preparo la consulta
         String sql = "UPDATE adquisiciones SET \n"
-                + "tipoIngreso = ?,\n"
-                + "ModoIngreso = ?,\n"
+                + "\"tipoIngreso\" = ?,\n"
+                + "\"ModoIngreso\" = ?,\n"
                 + "recursos = ?,\n"
-                + "fechaAdquisicion = ?, \n"
+                + "\"fechaAdquisicion\" = ?, \n"
                 + "monto = ? \n"
                 + "WHERE id = ?";
 

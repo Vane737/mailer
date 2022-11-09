@@ -39,9 +39,8 @@ public class Gestionar_Fotografia {
         this.id = Integer.parseInt(vector[0].trim());
         this.direccion = vector[1].trim();
         this.nombre  = vector[2].trim();
-        this.detalle = vector[3].trim();
-        this.fecha = vector[4].trim();
-        this.idInmueble = Integer.parseInt(vector[5].trim());
+        this.fecha = vector[3].trim();
+        this.idInmueble = Integer.parseInt(vector[4].trim());
 
     }
 
@@ -53,7 +52,7 @@ public class Gestionar_Fotografia {
 
         // Preparo la consulta
         String sql = "INSERT INTO fotografias(\n"
-                + "	id, direccion, nombre, detalle, fechaSubido, idInmueble)\n"
+                + "	id, direccion, nombre, detalle, \"fechaSubido\", \"idInmueble\")\n"
                 + "	VALUES (?, ?, ?, ?, ?, ?)";
         try {
             // La ejecuto
@@ -63,7 +62,7 @@ public class Gestionar_Fotografia {
             ps.setInt(1, this.id);
             ps.setString(2, this.direccion);
             ps.setString(3, this.nombre);
-            ps.setString(4, this.detalle);
+            ps.setString(4, "Fotografia del inmueble");
             ps.setString(5, this.fecha);
             ps.setInt(6, this.idInmueble);
 
@@ -103,10 +102,10 @@ public class Gestionar_Fotografia {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Imagenes de Inmuebles Registrados</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Ruta</th><th style=background:orange;>Nombre</th><th style=background:orange;>Detalle</th><th style=background:orange;>Fecha Subida</th><th style=background:orange;>ID Inmueble</th>";
+                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Ruta</th><th style=background:orange;>Nombre</th><th style=background:orange;>Fecha Subida</th><th style=background:orange;>ID Inmueble</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("direccion") + "</td><td>" + rs.getString("nombre") + "</td><td>" + rs.getString("detalle") + "</td><td>" + rs.getString("fechaSubido") + "</td><td>" + rs.getString("idInmueble") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("direccion") + "</td><td>" + rs.getString("nombre") + "</td>" + "</td><td>" + rs.getString("fechaSubido") + "</td><td>" + rs.getString("idInmueble") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -149,9 +148,8 @@ public class Gestionar_Fotografia {
         this.id = Integer.parseInt(vector[0].trim());
         this.direccion = vector[1].trim();
         this.nombre = vector[2].trim();
-        this.detalle = vector[3].trim();
-        this.fecha = vector[4].trim();
-        this.idInmueble = Integer.parseInt(vector[5].trim());
+        this.fecha = vector[3].trim();
+        this.idInmueble = Integer.parseInt(vector[4].trim());
     }
 
     public int ModifFotografia() {
@@ -165,15 +163,15 @@ public class Gestionar_Fotografia {
                 + "direccion = ?,\n"
                 + "nombre = ?,\n"
                 + "detalle = ?,\n"
-                + "fechaSubido = ?,\n"
-                + "idInmueble = ?\n"
+                + "\"fechaSubido\" = ?,\n"
+                + "\"idInmueble\" = ?\n"
                 + "WHERE id = ?";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.direccion);
             ps.setString(2, this.nombre);
-            ps.setString(3, this.detalle);
+            ps.setString(3, "Fotografia del inmueble");
             ps.setString(4, this.fecha);
             ps.setInt(5, this.idInmueble);
             ps.setInt(6, this.id);

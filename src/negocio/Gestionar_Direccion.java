@@ -40,9 +40,8 @@ public class Gestionar_Direccion {
         this.ubicacion = vector[1].trim();
         this.lugar = vector[2].trim();
         this.oficina = vector[3].trim();
-        this.descripcion = vector[4].trim();
-        this.latitud = vector[5].trim();
-        this.longitud = vector[6].trim();
+        this.latitud = vector[4].trim();
+        this.longitud = vector[5].trim();
 
     }
 
@@ -62,7 +61,7 @@ public class Gestionar_Direccion {
             ps.setString(2, this.ubicacion);
             ps.setString(3, this.lugar);
             ps.setString(4, this.oficina);
-            ps.setString(5, this.descripcion);
+            ps.setString(5, "UAGRM");
             ps.setString(6, this.latitud);
             ps.setString(7, this.longitud);
 
@@ -89,7 +88,7 @@ public class Gestionar_Direccion {
 
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
-        String sql = "SELECT id, ubicacion, lugar, oficina, descripcion, latitud, longitud\n"
+        String sql = "SELECT id, ubicacion, lugar, oficina, latitud, longitud\n"
                 + "	FROM direcciones;";
         try {
             // La ejecuto
@@ -99,11 +98,11 @@ public class Gestionar_Direccion {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
 
-            res = "<table border=\"6\"><caption><b>Lista Asociacion</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Ubicacion</th><th style=background:orange;>Lugar</th><th style=background:orange;>Oficina</th><th style=background:orange;>Descripcion</th><th style=background:orange;>Latitud</th><th style=background:orange;>Longitud</th>";
+            res = "<table border=\"6\"><caption><b>Lista De Direcciones</b></caption>\n"
+                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Ubicacion</th><th style=background:orange;>Lugar</th><th style=background:orange;>Edificio</th><th style=background:orange;>Latitud</th><th style=background:orange;>Longitud</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("ubicacion") + "</td><td>" + rs.getString("lugar") + "</td><td>" + rs.getString("oficina") + "</td><td>" + rs.getString("descripcion") + "</td><td>" + rs.getString("latitud") + "</td><td>" + rs.getString("longitud") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("ubicacion") + "</td><td>" + rs.getString("lugar") + "</td><td>" + rs.getString("oficina") + "</td><td>" + rs.getString("latitud") + "</td><td>" + rs.getString("longitud") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -133,7 +132,7 @@ public class Gestionar_Direccion {
             ps.setString(1, this.ubicacion);
             ps.setString(2, this.lugar);
             ps.setString(3, this.oficina);
-            ps.setString(4, this.descripcion);
+            ps.setString(4, "UAGRM");
             ps.setString(5, this.latitud);
             ps.setString(6, this.longitud);
             ps.setInt(7, this.id);
@@ -183,9 +182,8 @@ public class Gestionar_Direccion {
         this.ubicacion = vector[1].trim();
         this.lugar = vector[2].trim();
         this.oficina = vector[3].trim();
-        this.descripcion = vector[4].trim();
-        this.latitud = vector[5].trim();
-        this.longitud = vector[6].trim();
+        this.latitud = vector[4].trim();
+        this.longitud = vector[5].trim();
     }
 
 }
