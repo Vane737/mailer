@@ -99,7 +99,7 @@ public class Gestionar_Direccion {
             this.m_Conexion.cerrarConexion();
 
             res = "<table border=\"6\"><caption><b>Lista De Direcciones</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Ubicacion</th><th style=background:orange;>Lugar</th><th style=background:orange;>Edificio</th><th style=background:orange;>Latitud</th><th style=background:orange;>Longitud</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Ubicacion</th><th style=background:#8fe5f6;>Lugar</th><th style=background:#8fe5f6;>Edificio</th><th style=background:#8fe5f6;>Latitud</th><th style=background:#8fe5f6;>Longitud</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("ubicacion") + "</td><td>" + rs.getString("lugar") + "</td><td>" + rs.getString("oficina") + "</td><td>" + rs.getString("latitud") + "</td><td>" + rs.getString("longitud") + "</td></tr>";

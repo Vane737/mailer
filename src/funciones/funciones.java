@@ -269,11 +269,7 @@ public class funciones {
                     System.out.println("RESPONSABLE ELIMINADO ");
                     respuesta = "<b>RESPONSABLE ELIMINADO</b>";
                 } else {
-<<<<<<< Updated upstream
                     System.out.println("ERROR AL ELIMINAR RESPONSABLE");
-=======
-                    System.out.println("ERROR AL ELIMINAR GRUPO");
->>>>>>> Stashed changes
                     respuesta = "<b>RESPONSABLE NO ELIMINADO</b>";
                 }
                 break;
