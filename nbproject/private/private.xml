@@ -4,11 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/negocio/Gestionar_Usuario.java</file>
-            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/datos/conexion.java</file>
-            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/datos/db.java</file>
+            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/negocio/Gestionar_Revaluo.java</file>
+            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/negocio/Gestionar_Responsable.java</file>
+            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/presentacion/inicio.java</file>
             <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/presentacion/EliminarCorreos.java</file>
             <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/funciones/cadenas.java</file>
+            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/funciones/funciones.java</file>
             <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/negocio/Gestionar_Inmueble.java</file>
+            <file>file:/D:/1-2022/Tecno%20Web/Proyecto/mailer/src/negocio/Gestionar_Fotografia.java</file>
         </group>
     </open-files>
 </project-private>

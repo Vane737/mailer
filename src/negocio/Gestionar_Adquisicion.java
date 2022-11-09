@@ -104,7 +104,7 @@ public class Gestionar_Adquisicion {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Aquisiciones</b></caption>\n"
-                        + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Tipo de Ingreso</th><th style=background:orange;>Modo de Ingreso</th><th style=background:orange;>Recursos</th><th style=background:orange;>Fecha</th><th style=background:orange;>Monto</th>";
+                        + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Tipo de Ingreso</th><th style=background:#8fe5f6;>Modo de Ingreso</th><th style=background:#8fe5f6;>Recursos</th><th style=background:#8fe5f6;>Fecha</th><th style=background:#8fe5f6;>Monto</th>";
             // Recorro el resultado
             while (rs.next()) {
                 res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("tipoIngreso") + "</td><td>" + rs.getString("ModoIngreso") + "</td><td>" + rs.getString("recursos") + "</td><td>" + rs.getString("fechaAdquisicion") + "</td><td>" + rs.getString("monto") + "</td></tr>";

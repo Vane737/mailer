@@ -35,13 +35,12 @@ public class Gestionar_Revaluo {
         patron = patron.trim();
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
-        this.descripcion = vector[1].trim();
-        this.fecha = vector[2].trim();
-        this.costo = Float.parseFloat(vector[3].trim());
-        this.costoActualizado = Float.parseFloat(vector[4].trim());
-        this.depreciacionAcu = Float.parseFloat(vector[5].trim());
-        this.ValorNeto = Float.parseFloat(vector[6].trim());
-        this.id_inmueble = Integer.parseInt(vector[7].trim());
+        this.fecha = vector[1].trim();
+        this.costo = Float.parseFloat(vector[2].trim());
+        this.costoActualizado = Float.parseFloat(vector[3].trim());
+        this.depreciacionAcu = Float.parseFloat(vector[4].trim());
+        this.ValorNeto = Float.parseFloat(vector[5].trim());
+        this.id_inmueble = Integer.parseInt(vector[6].trim());
 
     }
 
@@ -62,7 +61,7 @@ public class Gestionar_Revaluo {
             // El segundo parametro de usa cuando se tienen tablas que generan llaves primarias
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
-            ps.setString(2, this.descripcion);
+            ps.setString(2, "a");
             ps.setString(3, this.fecha);
             ps.setFloat(4, this.costo);
             ps.setFloat(5, this.costoActualizado);
@@ -107,10 +106,10 @@ public class Gestionar_Revaluo {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Revaluos</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Descripcion</th><th style=background:orange;>Fecha Revaluo</th><th style=background:orange;>Costo</th><th style=background:orange;>Costo Actualizado</th><th style=background:orange;>Depreciacion Acumulada</th><th style=background:orange;>Valor Neto</th><th style=background:orange;>ID Inmueble</th>";
+                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Fecha Revaluo</th><th style=background:orange;>Costo</th><th style=background:orange;>Costo Actualizado</th><th style=background:orange;>Depreciacion Acumulada</th><th style=background:orange;>Valor Neto</th><th style=background:orange;>ID Inmueble</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("descripcion") + "</td><td>" + rs.getString("fechaRevaluo") + "</td><td>" + rs.getFloat("costo") + "</td><td>" + rs.getFloat("costoActualizado") + "</td><td>" + rs.getFloat("depreciacionAcumulada") + "</td><td>" + rs.getString("valorNeto") + "</td><td>" + rs.getString("idInmueble") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("fechaRevaluo") + "</td><td>" + rs.getFloat("costo") + "</td><td>" + rs.getFloat("costoActualizado") + "</td><td>" + rs.getFloat("depreciacionAcumulada") + "</td><td>" + rs.getString("valorNeto") + "</td><td>" + rs.getString("idInmueble") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -151,7 +150,6 @@ public class Gestionar_Revaluo {
 
         // Preparo la consulta
         String sql = "UPDATE revaluos SET \n"
-                + "descripcion = ?, \n"
                 + "fechaRevaluo = ?, \n"
                 + "costo = ?, \n"
                 + "costoActualizado = ?, \n"
@@ -163,14 +161,13 @@ public class Gestionar_Revaluo {
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, this.descripcion);
-            ps.setString(2, this.fecha);
-            ps.setFloat(3, this.costo);
-            ps.setFloat(4, this.costoActualizado);
-            ps.setFloat(5, this.depreciacionAcu);
-            ps.setFloat(6, this.ValorNeto);
-            ps.setInt(7, this.id_inmueble);
-            ps.setInt(8, this.id);
+            ps.setString(1, this.fecha);
+            ps.setFloat(2, this.costo);
+            ps.setFloat(3, this.costoActualizado);
+            ps.setFloat(4, this.depreciacionAcu);
+            ps.setFloat(5, this.ValorNeto);
+            ps.setInt(6, this.id_inmueble);
+            ps.setInt(7, this.id);
 
             int rows = ps.executeUpdate();
             // Cierro la conexion
@@ -192,13 +189,12 @@ public class Gestionar_Revaluo {
         patron = patron.trim();
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
-        this.descripcion = vector[1].trim();
-        this.fecha = vector[2].trim();
-        this.costo = Float.parseFloat(vector[3].trim());
-        this.costoActualizado = Float.parseFloat(vector[4].trim());
-        this.depreciacionAcu = Float.parseFloat(vector[5].trim());
-        this.ValorNeto = Float.parseFloat(vector[6].trim());
-        this.id_inmueble = Integer.parseInt(vector[7].trim());
+        this.fecha = vector[1].trim();
+        this.costo = Float.parseFloat(vector[2].trim());
+        this.costoActualizado = Float.parseFloat(vector[3].trim());
+        this.depreciacionAcu = Float.parseFloat(vector[4].trim());
+        this.ValorNeto = Float.parseFloat(vector[5].trim());
+        this.id_inmueble = Integer.parseInt(vector[6].trim());
     }
 
 }

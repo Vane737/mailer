@@ -37,15 +37,10 @@ public class Gestionar_Usuario {
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
-        this.apellido = vector[2].trim();
-        this.genero = vector[3].trim();
-        this.nacionalidad = vector[4].trim();
-        this.ci = Integer.parseInt(vector[5].trim());
-        this.celular = Integer.parseInt(vector[6].trim());
-        this.direccion = vector[7].trim();
-        this.Email = vector[8].trim();
-        this.Password = vector[9].trim();
-        this.TipoUsuario = vector[10].trim();     
+        this.ci = Integer.parseInt(vector[2].trim());
+        this.Email = vector[3].trim();
+        this.Password = vector[4].trim();
+        this.TipoUsuario = vector[5].trim();     
     }
 
     public int InsertarUsuario() {
@@ -67,12 +62,12 @@ public class Gestionar_Usuario {
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
             ps.setString(2, this.nombre);
-            ps.setString(3, this.apellido);
-            ps.setString(4, this.genero);
-            ps.setString(5, this.nacionalidad);
+            ps.setString(3, " ");
+            ps.setString(4, "F");
+            ps.setString(5, "boliviana");
             ps.setInt(6, this.ci);
-            ps.setInt(7, this.celular);
-            ps.setString(8, this.direccion);
+            ps.setInt(7, 1231245);
+            ps.setString(8, "direccion");
             ps.setString(9, this.Email);
             ps.setString(10, "Ninguna");
             ps.setString(11, this.Password);
@@ -116,10 +111,10 @@ public class Gestionar_Usuario {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Lista de Usuarios</b></caption>\n"
-                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre</th><th style=background:orange;>Genero</th><th style=background:orange;>CI</th><th style=background:orange;>Email</th><th style=background:orange;>Tipo Usuario</th>";
+                    + "<tr><th style=background:orange;>ID</th><th style=background:orange;>Nombre</th><th style=background:orange;>CI</th><th style=background:orange;>Email</th><th style=background:orange;>Tipo Usuario</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre")+rs.getString("apellido") + "</td><td>" + rs.getString("genero") + "</td><td>" + rs.getInt("ci") + "</td><td>" + rs.getString("email") + "</td><td>" + rs.getString("tipo_usuario") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td><td>" + rs.getInt("ci") + "</td><td>" + rs.getString("email") + "</td><td>" + rs.getString("tipo_usuario") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -162,11 +157,6 @@ public class Gestionar_Usuario {
         // Preparo la consulta
         String sql = "UPDATE usuarios SET \n"
                 + "nombre = ?,\n"
-                + "apellido = ?,\n"
-                + "genero = ?,\n"
-                + "nacionalidad = ?,\n"
-                + "celular = ?, \n"
-                + "direccion = ?, \n"
                 + "email = ?, \n"
                 + "password = ?,\n"
                 + "tipo_usuario = ?\n"
@@ -177,15 +167,10 @@ public class Gestionar_Usuario {
             PreparedStatement ps = con.prepareStatement(sql);
             
             ps.setString(1, this.nombre);
-            ps.setString(2, this.apellido);
-            ps.setString(3, this.genero);
-            ps.setString(4, this.nacionalidad);
-            ps.setInt(5, this.celular);
-            ps.setString(6, this.direccion);
-            ps.setString(7, this.Email);
-            ps.setString(8, this.Password);
-            ps.setString(9, this.TipoUsuario);
-            ps.setInt(10, this.ci);
+             ps.setString(2, this.Email);
+            ps.setString(3, this.Password);
+            ps.setString(4, this.TipoUsuario);
+            ps.setInt(5, this.ci);
             int rows = ps.executeUpdate();
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
@@ -206,14 +191,9 @@ public class Gestionar_Usuario {
         vector = patron.split(",");
         this.ci = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
-        this.apellido = vector[2].trim();
-        this.genero = vector[3].trim();
-        this.nacionalidad = vector[4].trim();
-        this.celular = Integer.parseInt(vector[5].trim());
-        this.direccion = vector[6].trim();
-        this.Email = vector[7].trim();
-        this.Password = vector[8].trim();
-        this.TipoUsuario = vector[9].trim();
+        this.Email = vector[2].trim();
+        this.Password = vector[3].trim();
+        this.TipoUsuario = vector[4].trim();
 
     }
 
