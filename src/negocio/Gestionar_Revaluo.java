@@ -52,7 +52,7 @@ public class Gestionar_Revaluo {
 
         // Preparo la consulta
         String sql = "INSERT INTO revaluos(\n"
-                + "	id, descripcion, fechaRevaluo, costo, costoActualizado, depreciacionAcumulada, valorNeto, idInmueble)\n"
+                + "	id, descripcion, \"fechaRevaluo\", costo, \"costoActualizado\", \"depreciacionAcumulada\", \"valorNeto\", \"idInmueble\"\n"
                 + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -150,12 +150,12 @@ public class Gestionar_Revaluo {
 
         // Preparo la consulta
         String sql = "UPDATE revaluos SET \n"
-                + "fechaRevaluo = ?, \n"
+                + "\"fechaRevaluo\" = ?, \n"
                 + "costo = ?, \n"
-                + "costoActualizado = ?, \n"
-                + "depreciacionAcumulada = ?, \n"
-                + "valorNeto = ?, \n"
-                + "idInmueble = ?\n"
+                + "\"costoActualizado\" = ?, \n"
+                + "\"depreciacionAcumulada\" = ?, \n"
+                + "\"valorNeto\" = ?, \n"
+                + "\"idInmueble\" = ?\n"
                 + "WHERE id = ?";
 
         try {
