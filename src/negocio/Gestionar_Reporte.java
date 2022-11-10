@@ -64,8 +64,8 @@ public class Gestionar_Reporte {
         String res = "";
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
-        String sql = "SELECT im.id, im.codigo, im.detalle, ad.\"fechaAdquisicion\", gr.nombre as grupo, di.ubicacion, es.nombre as estado, res.detalle as responsable, im.\"fechaRegistro\""+
-                     "FROM inmuebles as im, adquisiciones as ad, direcciones as di, grupos as gr, estados as es, responsables as res" +
+        String sql = "SELECT im.id, im.codigo, im.detalle, ad.\"fechaAdquisicion\", gr.nombre as grupo, di.latitud, di.longitud,res.detalle as responsable\n"+
+                     "FROM inmuebles as im, adquisiciones as ad, direcciones as di, grupos as gr, estados as es, responsables as res \n" +
                      "WHERE im.\"idAdquisicion\"=ad.id and im.\"idDireccion\"=di.id and im.\"idGrupo\"=gr.id and im.\"idEstado\"=es.id and im.\"idResponsable\"=res.id and gr.nombre ilike \'" + this.grupo + "%\'";
         try {
             // La ejecuto
@@ -79,7 +79,7 @@ public class Gestionar_Reporte {
                     + "<tr><th style=background:#8fe5f6;>Codigo</th><th style=background:#8fe5f6;>Descripcion</th><th style=background:#8fe5f6;>Fecha Adquisicion</th><th style=background:#8fe5f6;>Grupo</th><th style=background:#8fe5f6;>Latitud</th><th style=background:#8fe5f6;>Longitud</th><th style=background:#8fe5f6;>Responsable</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("codigo") + "</td><td>" + rs.getString("detalle") + "</td><td>" + rs.getString("fechaAdquisicion") + "</td><td>" + rs.getString("grupo") + "</td><td>" + rs.getString("latitud")+ "</td><td>" + rs.getString("longitud")+ "</td><td>" + rs.getString("responsable")+ "</td></tr>";
+                res = res + "<tr><td>" + rs.getString("codigo") + "</td><td>" + rs.getString("detalle") + "</td><td>" + rs.getString("fechaAdquisicion") + "</td><td>" + rs.getString("grupo") + "</td><td>" + rs.getString("latitud")+ "</td><td>" + rs.getString("longitud")+ "</td><td>" + rs.getString("responsable")+ "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
