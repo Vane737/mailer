@@ -62,12 +62,11 @@ public class Gestionar_Reporte {
     
     public String listRepGrupo() {
         String res = "";
-        
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
-        String sql = "SELECT im.codigo, im.detalle, ad.\"fechaAdquisicion\", gr.nombre as grupo, di.latitud, di.longitud, res.detalle as responsable\n" +
-                     "FROM inmuebles as im, adquisiciones as ad, direcciones as di, grupos as gr, responsables as res \n" +
-                     "WHERE im.\"idAdquisicion\"=ad.id and im.\"idDireccion\"=di.id and im.\"idGrupo\"=gr.id and im.\"idResponsable\"=res.id and gr.nombre ilike" + "\'" + this.grupo + '%' + "\'";
+        String sql = "SELECT im.id, im.codigo, im.detalle, ad.\"fechaAdquisicion\", gr.nombre as grupo, di.ubicacion, es.nombre as estado, res.detalle as responsable, im.\"fechaRegistro\""+
+                     "FROM inmuebles as im, adquisiciones as ad, direcciones as di, grupos as gr, estados as es, responsables as res" +
+                     "WHERE im.\"idAdquisicion\"=ad.id and im.\"idDireccion\"=di.id and im.\"idGrupo\"=gr.id and im.\"idEstado\"=es.id and im.\"idResponsable\"=res.id and gr.nombre ilike \'" + this.grupo + "%\'";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
