@@ -36,9 +36,9 @@ public class Gestionar_Reporte {
         
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
-        String sql = "SELECT im.id, im.codigo, im.detalle,ad.\"fechaAdquisicion\", gr.nombre as grupo, di.ubicacion, es.nombre as estado, res.detalle as responsable, im.\"fechaRegistro\"\n" +
-                     "FROM inmuebles as im, adquisiciones as ad, direcciones as di, grupos as gr, estados as es, responsables as res \n" +
-                     "WHERE im.\"idAdquisicion\"=ad.id and im.\"idDireccion\"=di.id and im.\"idGrupo\"=gr.id and im.\"idEstado\"=es.id and im.\"idResponsable\"=res.id ";
+        String sql = "SELECT im.codigo, im.detalle, ad.\"fechaAdquisicion\", ad.monto, gr.nombre as grupo, es.nombre as estado, rev.\"fechaRevaluo\", rev.costo \n" +                      
+                      "FROM inmuebles as im, adquisiciones as ad, revaluos as rev, grupos as gr, estados as es, responsables as res\n" +
+                      "WHERE im.\"idAdquisicion\"=ad.id and im.\"idGrupo\"=gr.id and im.\"idEstado\"=es.id and im.\"idResponsable\"=res.id and im.id=rev.\"idInmueble\" and rev.\"fechaRevaluo\" ilike \'%" + this.año +"\'";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
@@ -48,10 +48,10 @@ public class Gestionar_Reporte {
             this.m_Conexion.cerrarConexion();
             
             res = "<table border=\"6\"><caption><b>Listado de Inmuebles</b></caption>\n"
-                    + "<tr><th style=background:#8fe5f6;>ID Inmueble</th><th style=background:#8fe5f6;>Codigo</th><th style=background:#8fe5f6;>Detalle</th><th style=background:#8fe5f6;>Fecha Registro</th><th style=background:#8fe5f6;>Grupo</th><th style=background:#8fe5f6;>Ubicacion</th><th style=background:#8fe5f6;>Estado</th><th style=background:#8fe5f6;>Responsable</th><th style=background:#8fe5f6;>Fecha Adquisicion</th>";
+                    + "<tr><th style=background:#8fe5f6;>Codigo</th><th style=background:#8fe5f6;>Descripcion</th><th style=background:#8fe5f6;>Fecha Adquisicion</th><th style=background:#8fe5f6;>Monto</th><th style=background:#8fe5f6;>Grupo</th><th style=background:#8fe5f6;>Estado</th><th style=background:#8fe5f6;>Fecha Revaluo</th><th style=background:#8fe5f6;>Costo</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("codigo") + "</td><td>" + rs.getString("detalle") + "</td><td>" + rs.getString("fechaRegistro") + "</td><td>" + rs.getString("grupo") + "</td><td>" + rs.getString("ubicacion")+ "</td><td>" + rs.getString("estado")+ "</td><td>" + rs.getString("responsable")+ "</td><td>" + rs.getString("fechaAdquisicion")+ "</tr>";
+                res = res + "<tr><td>" + rs.getString("codigo") + "</td><td>" + rs.getString("detalle") + "</td><td>" + rs.getString("fechaAdquisicion") + "</td><td>" + rs.getDouble("monto") + "</td><td>" + rs.getString("grupo") + "</td><td>" + rs.getString("estado")+ "</td><td>" + rs.getString("fechaRevaluo")+ "</td><td>" + rs.getDouble("costo")+ "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
