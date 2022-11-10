@@ -10,6 +10,7 @@ import negocio.Gestionar_Grupo;
 import negocio.Gestionar_Estado;
 import negocio.Gestionar_Responsable;
 import negocio.Gestionar_Inmueble;
+import negocio.Gestionar_Reporte;
 
 public class funciones {
 
@@ -22,6 +23,7 @@ public class funciones {
     Gestionar_Responsable gr = new Gestionar_Responsable();
     Gestionar_Fotografia gp = new Gestionar_Fotografia();
     Gestionar_Inmueble gi = new Gestionar_Inmueble();
+    Gestionar_Reporte grp = new Gestionar_Reporte();
 
     cadenas cad = new cadenas();
                                   // LISTUSU["*"]     todo el correo           
@@ -351,6 +353,24 @@ public class funciones {
                     respuesta = "<b>ERROR AL MODIFICAR INMUEBLE</b>";
                 }
                 break;
+///GESTIONAR REPORTES
+            case "REPREV":
+                System.out.println("REPORTE REVALUO: \n");
+                grp.setAnioRevaluo(Integer.parseInt(cad.ObtenerID(pat)));
+                if (-1 != gi.EliminarInmueble()) {
+                    System.out.println("INMUEBLE ELIMINADO ");
+                    respuesta = "<b>INMUEBLE ELIMINADO</b>";
+                } else {
+                    System.out.println("ERROR AL ELIMINAR INMUEBLE ");
+                    respuesta = "<b>INMUEBLE NO ELIMINADO</b>";
+                }
+                break;
+            case "REPGRUP":
+                System.out.println("REPORTE GRUPO: \n" + gi.ListarInmueble());
+                grp.setGrupInmueble(cad.ObtenerID(pat));
+                respuesta = grp.listRepGrupo();
+                break;
+///AYUDA
             case "HELP":
                 respuesta
                         = "<h1 style=\"color:#8fe5f6; text-align:center;\">Sistema Mail de Gestión - Bienes Inmuebles</h1><br/>"
@@ -371,7 +391,7 @@ public class funciones {
                         + "<li>Listar:    LISTDIR[\"*\"] </li>"
                         + "<li>Insertar:  INSDIR[\"ID\",\"Ubicacion\",\"Lugar\",\"Edificio\",\"Latitud\",\"Longitud\"]</li>"
                         + "<li>Modificar: MODDIR[\"ID\",\"Ubicacion\",\"Lugar\",\"Edificio\",\"Latitud\",\"Longitud\"]</li>"
-                        + "<li>Eliminar:  ELIDIR[\"iD\"] </li>"
+                        + "<li>Eliminar:  ELIDIR[\"ID\"] </li>"
                         + "</ol>"
                         + "<h3>4.- ESTADO</h3><ol>"
                         + "<li>Listar:    LISTEST[\"*\"] </li>"
@@ -409,14 +429,15 @@ public class funciones {
                         + "<li>Modificar:   MODINMU[\"ID\",\"Codigo\",\"Detalle\",\"Fecha\",\"IdResponsable\",\"IdEstado\",\"IdGrupo\",\"IdDireccion\",\"IdAdquisicion\"] </li>"
                         + "<li>Eliminar:    ELIINMU[\"ID\"] </li>"
                         + "</ol>"
+                        + "<h3>10.- REPORTES</h3><ol>"
+                        + "<li>Reporte Revaluo:      REPREV[\"Gestion Revaluo\"] </li>"
+                        + "<li>Reporte Grupos:    REPGRUP[\"Grupo\"] </li>"
+                        + "</ol>"
                         + "<br>";
-
                 break;
             default:
                 respuesta = "<b>ERROR DE COMANDO: NO EXISTE EL COMANDO SOLICITADO</b>";
                 break;
-                
-
         }
         SMTPenviar smtp = new SMTPenviar();
         //smtp.enviarGmail(cad.ObtEmailDestino(msj), respuesta);

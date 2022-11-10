@@ -53,8 +53,8 @@ public class Gestionar_Estado {
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
             ps.setString(2, this.nombre);
-            ps.setString(3, "Si");
-            ps.setString(4, "Descripcion Estado");
+            ps.setString(3, "SI");
+            ps.setString(4, "DESCRIPCION DEL ESTADO");
 
             int rows = ps.executeUpdate();
 
@@ -133,8 +133,8 @@ public class Gestionar_Estado {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.nombre);
-            ps.setString(2, "Si");
-            ps.setString(3, "Estado modificado");
+            ps.setString(2, "SI");
+            ps.setString(3, "ESTADO MODIFICADO");
             ps.setInt(4, this.id);
             int rows = ps.executeUpdate();
             // Cierro la conexion

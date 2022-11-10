@@ -160,7 +160,7 @@ public class Gestionar_Usuario {
                 + "email = ?, \n"
                 + "password = ?,\n"
                 + "tipo_usuario = ?\n"
-                + "WHERE ci = ?";
+                + "WHERE id = ?";
 
         try {
             // La ejecuto
@@ -170,7 +170,7 @@ public class Gestionar_Usuario {
              ps.setString(2, this.Email);
             ps.setString(3, this.Password);
             ps.setString(4, this.TipoUsuario);
-            ps.setInt(5, this.ci);
+            ps.setInt(5, this.id);
             int rows = ps.executeUpdate();
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
@@ -189,7 +189,7 @@ public class Gestionar_Usuario {
         patron = patron.replace(']', ' ');
         patron = patron.trim();
         vector = patron.split(",");
-        this.ci = Integer.parseInt(vector[0].trim());
+        this.id = Integer.parseInt(vector[0].trim());
         this.nombre = vector[1].trim();
         this.Email = vector[2].trim();
         this.Password = vector[3].trim();
