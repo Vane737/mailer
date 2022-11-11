@@ -11,7 +11,7 @@ import funciones.cadenas;
 public class Gestionar_Informe {
 
     int id;
-    String nombre;
+    String url;
 
     conexion m_Conexion;
     cadenas cade = new cadenas();
@@ -20,7 +20,7 @@ public class Gestionar_Informe {
         this.m_Conexion = conexion.getInstancia();
     }
 
-    public void setIdGrupo(int id) {
+    public void setIdInforme(int id) {
         this.id = id;
     }
 
@@ -32,11 +32,11 @@ public class Gestionar_Informe {
         patron = patron.trim();
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
-        this.nombre = vector[1].trim();
+        this.url = vector[1].trim();
 
     }
 
-    public int InsertarGrupo() {
+    public int InsertarInforme() {
 
         // Abro y obtengo la conexion
         this.m_Conexion.abrirConexion();
@@ -44,8 +44,8 @@ public class Gestionar_Informe {
         int i = 1;
 
         // Preparo la consulta
-        String sql = "INSERT INTO grupos(\n"
-                + "	id, nombre)\n"
+        String sql = "INSERT INTO informes(\n"
+                + "	id, url)\n"
                 + "	VALUES (?, ?)";
 
         try {
@@ -54,7 +54,7 @@ public class Gestionar_Informe {
             // El segundo parametro de usa cuando se tienen tablas que generan llaves primarias
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
-            ps.setString(2, this.nombre);
+            ps.setString(2, this.url);
 
             int rows = ps.executeUpdate();
 
@@ -75,7 +75,7 @@ public class Gestionar_Informe {
         return i;
     }
 
-    public String ListarGrupo() {
+    public String ListarInforme() {
         String res = "";
 
         // Abro y obtengo la conexion
@@ -83,7 +83,7 @@ public class Gestionar_Informe {
         Connection con = this.m_Conexion.getConexion();
         // Preparo la consulta
         String sql = "SELECT * \n"
-                + "FROM grupos";
+                + "FROM informes";
 
         try {
             // La ejecuto
@@ -93,10 +93,10 @@ public class Gestionar_Informe {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             res = "<table border=\"6\"><caption><b>Lista de Servicio</b></caption>\n"
-                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Nombre del Grupo</th>";
+                    + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Nombre del Informe</th>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nombre") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("url") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -113,24 +113,24 @@ public class Gestionar_Informe {
         patron = patron.trim();
         vector = patron.split(",");
         this.id = Integer.parseInt(vector[0].trim());
-        this.nombre = vector[1].trim();
+        this.url = vector[1].trim();
 
     }
 
-    public int ModifGrupo() {
+    public int ModifInforme() {
         int c = 1;
         // Abro y obtengo la conexion
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
 
         // Preparo la consulta
-        String sql = "UPDATE grupos SET \n"
-                + "nombre = ? \n"
+        String sql = "UPDATE informes SET \n"
+                + "url = ? \n"
                 + "WHERE id = ?";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, this.nombre);
+            ps.setString(1, this.url);
             ps.setInt(2, this.id);
             int rows = ps.executeUpdate();
             // Cierro la conexion
@@ -143,14 +143,14 @@ public class Gestionar_Informe {
 
     }
 
-    public int EliminarGrupo() {
+    public int EliminarInforme() {
         int i = 1;
         // Abro y obtengo la conexion
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
 
         // Preparo la consulta
-        String sql = "DELETE from grupos \n"
+        String sql = "DELETE from informes \n"
                 + "WHERE id = ?";
         try {
             // La ejecuto

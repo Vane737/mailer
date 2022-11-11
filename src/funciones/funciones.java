@@ -11,6 +11,7 @@ import negocio.Gestionar_Estado;
 import negocio.Gestionar_Responsable;
 import negocio.Gestionar_Inmueble;
 import negocio.Gestionar_Reporte;
+import negocio.Gestionar_Informe;
 
 public class funciones {
 
@@ -24,6 +25,7 @@ public class funciones {
     Gestionar_Fotografia gp = new Gestionar_Fotografia();
     Gestionar_Inmueble gi = new Gestionar_Inmueble();
     Gestionar_Reporte grp = new Gestionar_Reporte();
+    Gestionar_Informe inf = new Gestionar_Informe();
 
     cadenas cad = new cadenas();
                                   // LISTUSU["*"]     todo el correo           
@@ -110,6 +112,40 @@ public class funciones {
                 } else {
                     System.out.println("ERROR AL MODIFICAR GRUPO");
                     respuesta = "<b>GRUPO NO MODIFICADO</b>";
+                }
+                break;
+/// GESTIONAR INFORME
+            case "INSINFOR":
+                    System.out.println("INSERTANDO INFORME");
+                inf.AsigParametros(pat);
+                if (-1 != inf.InsertarInforme()) {
+                    respuesta = "<b>GRUPO NUEVO INFORME</b>";
+                } else {
+                    respuesta = "<b>ERROR AL INSERTAR INFORME</b>";
+                }
+                break;
+            case "LISTINFOR":
+                System.out.println("LISTANDO INFORMES REGISTRADOS: \n" + inf.ListarInforme());
+                respuesta = inf.ListarInforme();
+                break;
+            case "ELIINFOR":
+                inf.setIdInforme(Integer.parseInt(cad.ObtenerID(pat)));
+                if (-1 != inf.EliminarInforme()) {
+                    System.out.println("INFORME ELIMINADO ");
+                    respuesta = "<b>INFORME ELIMINADO</b>";
+                } else {
+                    System.out.println("ERROR AL ELIMINAR INFORME");
+                    respuesta = "<b>INFORME NO ELIMINADO</b>";
+                }
+                break;
+            case "MODINFOR":
+                inf.AsigParametrosMod(pat);
+                if (-1 != inf.ModifInforme()) {
+                    System.out.println("INFORME MODIFICADO ");
+                    respuesta = "<b>INFORME MODIFICADO</b>";
+                } else {
+                    System.out.println("ERROR AL MODIFICAR INFORME");
+                    respuesta = "<b>INFORME NO MODIFICADO</b>";
                 }
                 break;
 //GESTIONAR DIRECCION
