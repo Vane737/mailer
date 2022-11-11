@@ -9,18 +9,19 @@ import datos.conexion;
 import funciones.cadenas;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import presentacion.hilo;
 
 public class Gestionar_Informe {
-
+    conexion m_Conexion;
+    cadenas cade = new cadenas();
+    
     int id;
     String url;
     String descripcion;
     int id_revaluo;
-    Calendar fecha_actual = new GregorianCalendar();
+    String fecha_hora_actual = cade.getFechaHora();
     
-    conexion m_Conexion;
-    cadenas cade = new cadenas();
-
+    
     public Gestionar_Informe() {
         this.m_Conexion = conexion.getInstancia();
     }
@@ -60,8 +61,8 @@ public class Gestionar_Informe {
             // El segundo parametro de usa cuando se tienen tablas que generan llaves primarias
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
-            ps.setString(2, (this.fecha_actual).toString());
-            ps.setString(3, (this.fecha_actual).toString());
+            ps.setString(2, (this.fecha_hora_actual).toString());
+            ps.setString(3, (this.fecha_hora_actual).toString());
             ps.setString(4, this.url);
             ps.setString(5, this.descripcion);
             ps.setInt(6, this.id_revaluo);
@@ -126,7 +127,7 @@ public class Gestionar_Informe {
         this.descripcion = vector[1].trim();
         this.url = vector[2].trim();
         this.id_revaluo = Integer.parseInt(vector[3].trim());
-        this.fecha_actual = new GregorianCalendar();
+        this.fecha_hora_actual = cade.getFechaHora();
     }
 
     public int ModifInforme() {
@@ -147,7 +148,7 @@ public class Gestionar_Informe {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, this.descripcion);
             ps.setString(2, this.url);
-            ps.setString(3, (this.fecha_actual).toString());
+            ps.setString(3, (this.fecha_hora_actual).toString());
             ps.setInt(4, this.id_revaluo);
             ps.setInt(5, this.id);
             int rows = ps.executeUpdate();
@@ -184,5 +185,5 @@ public class Gestionar_Informe {
         }
         return i;
     }
-
+    
 }

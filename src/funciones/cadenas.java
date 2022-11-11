@@ -2,6 +2,9 @@ package funciones;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import presentacion.hilo;
 
 public class cadenas {
                                 
@@ -117,4 +120,24 @@ public class cadenas {
         }
         return cad;
     }
+//    Calendar fecha_actual = new GregorianCalendar();
+//        System.out.println(fecha_actual.get(Calendar.YEAR));
+    
+    public String getFechaHora(){
+        String fecha = "";
+        String hora = "";
+        Calendar fecha_actual = new GregorianCalendar();
+        fecha = fecha + fecha_actual.get(Calendar.YEAR);
+        fecha += "-" + fecha_actual.get(Calendar.MONTH);
+        fecha += "-" + fecha_actual.get(Calendar.DAY_OF_MONTH);
+        hora = hora + fecha_actual.get(Calendar.HOUR_OF_DAY);
+        hora += ":" + fecha_actual.get(Calendar.MINUTE);
+        hora += ":" + fecha_actual.get(Calendar.SECOND);
+        return fecha + " "  + hora;
+    }
+    
+//    public static void main(String[] args) {
+//        System.out.println(getFechaHora());
+//    }
+            
 }
