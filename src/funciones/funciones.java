@@ -392,14 +392,8 @@ public class funciones {
 ///GESTIONAR REPORTES
             case "REPREV":
                 System.out.println("REPORTE REVALUO: \n");
-                grp.setAnioRevaluo(Integer.parseInt(cad.ObtenerID(pat)));
-                if (-1 != gi.EliminarInmueble()) {
-                    System.out.println("INMUEBLE ELIMINADO ");
-                    respuesta = "<b>INMUEBLE ELIMINADO</b>";
-                } else {
-                    System.out.println("ERROR AL ELIMINAR INMUEBLE ");
-                    respuesta = "<b>INMUEBLE NO ELIMINADO</b>";
-                }
+                grp.setAnioRevaluo(cad.ObtenerID(pat));
+                respuesta = grp.listRepRevaluo();
                 break;
             case "REPGRUP":
                 System.out.println("REPORTE GRUPO: \n" + gi.ListarInmueble());

@@ -9,7 +9,7 @@ import datos.conexion;
 
 public class Gestionar_Reporte {
     
-    int año;
+    String año;
     String grupo;
     String codigo,detalle,fecha;
     int id_responsable,id_estado,id_grupo,id_direccion,id_adquisicion;
@@ -21,7 +21,7 @@ public class Gestionar_Reporte {
         this.m_Conexion = conexion.getInstancia();
     }
     
-    public void setAnioRevaluo(int año) {
+    public void setAnioRevaluo(String año) {
         this.año = año;
     }
     
@@ -37,8 +37,8 @@ public class Gestionar_Reporte {
         this.m_Conexion.abrirConexion();
         Connection con = this.m_Conexion.getConexion();
         String sql = "SELECT im.codigo, im.detalle, ad.\"fechaAdquisicion\", ad.monto, gr.nombre as grupo, es.nombre as estado, rev.\"fechaRevaluo\", rev.costo \n" +                      
-                      "FROM inmuebles as im, adquisiciones as ad, revaluos as rev, grupos as gr, estados as es, responsables as res\n" +
-                      "WHERE im.\"idAdquisicion\"=ad.id and im.\"idGrupo\"=gr.id and im.\"idEstado\"=es.id and im.\"idResponsable\"=res.id and im.id=rev.\"idInmueble\" and rev.\"fechaRevaluo\" ilike \'%" + this.año +"\'";
+                     "FROM inmuebles as im, adquisiciones as ad, revaluos as rev, grupos as gr, estados as es, responsables as res \n" +
+                     "WHERE im.\"idAdquisicion\"=ad.id and im.\"idGrupo\"=gr.id and im.\"idEstado\"=es.id and im.\"idResponsable\"=res.id and im.id=rev.\"idInmueble\" and rev.\"fechaRevaluo\" ilike \'%" + this.año +"\'";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class Gestionar_Reporte {
             // Cierro la conexion
             this.m_Conexion.cerrarConexion();
             
-            res = "<table border=\"6\"><caption><b>Listado de Inmuebles</b></caption>\n"
+            res = "<table border=\"6\"><caption><b>Reporte Revaluo Por Gestion</b></caption>\n"
                     + "<tr><th style=background:#8fe5f6;>Codigo</th><th style=background:#8fe5f6;>Descripcion</th><th style=background:#8fe5f6;>Fecha Adquisicion</th><th style=background:#8fe5f6;>Monto</th><th style=background:#8fe5f6;>Grupo</th><th style=background:#8fe5f6;>Estado</th><th style=background:#8fe5f6;>Fecha Revaluo</th><th style=background:#8fe5f6;>Costo</th>";
             // Recorro el resultado
             while (rs.next()) {
