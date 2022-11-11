@@ -114,40 +114,6 @@ public class funciones {
                     respuesta = "<b>GRUPO NO MODIFICADO</b>";
                 }
                 break;
-/// GESTIONAR INFORME
-            case "INSINFOR":
-                    System.out.println("INSERTANDO INFORME");
-                inf.AsigParametros(pat);
-                if (-1 != inf.InsertarInforme()) {
-                    respuesta = "<b>GRUPO NUEVO INFORME</b>";
-                } else {
-                    respuesta = "<b>ERROR AL INSERTAR INFORME</b>";
-                }
-                break;
-            case "LISTINFOR":
-                System.out.println("LISTANDO INFORMES REGISTRADOS: \n" + inf.ListarInforme());
-                respuesta = inf.ListarInforme();
-                break;
-            case "ELIINFOR":
-                inf.setIdInforme(Integer.parseInt(cad.ObtenerID(pat)));
-                if (-1 != inf.EliminarInforme()) {
-                    System.out.println("INFORME ELIMINADO ");
-                    respuesta = "<b>INFORME ELIMINADO</b>";
-                } else {
-                    System.out.println("ERROR AL ELIMINAR INFORME");
-                    respuesta = "<b>INFORME NO ELIMINADO</b>";
-                }
-                break;
-            case "MODINFOR":
-                inf.AsigParametrosMod(pat);
-                if (-1 != inf.ModifInforme()) {
-                    System.out.println("INFORME MODIFICADO ");
-                    respuesta = "<b>INFORME MODIFICADO</b>";
-                } else {
-                    System.out.println("ERROR AL MODIFICAR INFORME");
-                    respuesta = "<b>INFORME NO MODIFICADO</b>";
-                }
-                break;
 //GESTIONAR DIRECCION
             case "INSDIR":
                 System.out.println("INSERTANDO DIRECCION");
@@ -387,6 +353,40 @@ public class funciones {
                 } else {
                     System.out.println("ERROR AL MODIFICAR INMUEBLE");
                     respuesta = "<b>ERROR AL MODIFICAR INMUEBLE</b>";
+                }
+                break;
+/// GESTIONAR INFORME
+            case "INSINFOR":
+                    System.out.println("INSERTANDO INFORME");
+                inf.AsigParametros(pat);
+                if (-1 != inf.InsertarInforme()) {
+                    respuesta = "<b>GRUPO NUEVO INFORME</b>";
+                } else {
+                    respuesta = "<b>ERROR AL INSERTAR INFORME</b>";
+                }
+                break;
+            case "LISTINFOR":
+                System.out.println("LISTANDO INFORMES REGISTRADOS: \n" + inf.ListarInforme());
+                respuesta = inf.ListarInforme();
+                break;
+            case "ELIINFOR":
+                inf.setIdInforme(Integer.parseInt(cad.ObtenerID(pat)));
+                if (-1 != inf.EliminarInforme()) {
+                    System.out.println("INFORME ELIMINADO ");
+                    respuesta = "<b>INFORME ELIMINADO</b>";
+                } else {
+                    System.out.println("ERROR AL ELIMINAR INFORME");
+                    respuesta = "<b>INFORME NO ELIMINADO</b>";
+                }
+                break;
+            case "MODINFOR":
+                inf.AsigParametrosMod(pat);
+                if (-1 != inf.ModifInforme()) {
+                    System.out.println("INFORME MODIFICADO ");
+                    respuesta = "<b>INFORME MODIFICADO</b>";
+                } else {
+                    System.out.println("ERROR AL MODIFICAR INFORME");
+                    respuesta = "<b>INFORME NO MODIFICADO</b>";
                 }
                 break;
 ///GESTIONAR REPORTES
