@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import datos.conexion;
 import funciones.cadenas;
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import presentacion.hilo;
@@ -52,7 +53,7 @@ public class Gestionar_Informe {
 
         // Preparo la consulta
         String sql = "INSERT INTO informes(\n"
-                + "	id, created_at, updated_at, url, descripcion, id_revaluo_fk)\n"
+                + "	id, created_at, updated_at, url, descripcion, id_revaluo)\n"
                 + "	VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
@@ -61,8 +62,8 @@ public class Gestionar_Informe {
             // El segundo parametro de usa cuando se tienen tablas que generan llaves primarias
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
-            ps.setString(2, (this.fecha_hora_actual).toString());
-            ps.setString(3, (this.fecha_hora_actual).toString());
+            ps.setTimestamp(2, Timestamp.valueOf(this.fecha_hora_actual));
+            ps.setTimestamp(3, Timestamp.valueOf(this.fecha_hora_actual));
             ps.setString(4, this.url);
             ps.setString(5, this.descripcion);
             ps.setInt(6, this.id_revaluo);
@@ -107,7 +108,7 @@ public class Gestionar_Informe {
                     + "<tr><th style=background:#8fe5f6;>ID</th><th style=background:#8fe5f6;>Descripcion</th><th style=background:#8fe5f6;>Url</th><th style=background:#8fe5f6;>Fecha de creacion</th><th style=background:#8fe5f6;>Fecha de actualizacion</th><th style=background:#8fe5f6;>ID Revaluo</th></tr>";
             // Recorro el resultado
             while (rs.next()) {
-                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("descripcion") + "</td><td>" + rs.getString("url") + "</td><td>" + rs.getString("created_at") + "</td><td>" + rs.getString("updated_at") + rs.getInt("id_revaluo_fk") + "</td></tr>";
+                res = res + "<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("descripcion") + "</td><td>" + rs.getString("url") + "</td><td>" + rs.getString("created_at") + "</td><td>" + rs.getString("updated_at") + "</td><td>" + rs.getInt("id_revaluo") + "</td></tr>";
             }
             res = res + "</table>";
         } catch (SQLException ex) {
@@ -141,14 +142,15 @@ public class Gestionar_Informe {
                 + "descripcion = ? \n"
                 + "url = ? \n"
                 + "updated_at = ? \n"
-                + "id_revaluo_fk = ? \n"
+                + "id_revaluo = ? \n"
                 + "WHERE id = ?";
         try {
             // La ejecuto
             PreparedStatement ps = con.prepareStatement(sql);
+            
             ps.setString(1, this.descripcion);
             ps.setString(2, this.url);
-            ps.setString(3, (this.fecha_hora_actual).toString());
+            ps.setTimestamp(3, Timestamp.valueOf(this.fecha_hora_actual));
             ps.setInt(4, this.id_revaluo);
             ps.setInt(5, this.id);
             int rows = ps.executeUpdate();
@@ -158,6 +160,23 @@ public class Gestionar_Informe {
             System.out.println(ex.getMessage());
             c = -1;
         }
+
+/*        try {
+            // La ejecuto
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, this.descripcion);
+            ps.setString(2, this.url); 
+            ps.setTimestamp(3, Timestamp.valueOf(this.fecha_hora_actual));
+            ps.setInt(4, this.id_revaluo);
+            ps.setInt(5, this.id);
+            int rows = ps.executeUpdate();
+            // Cierro la conexion
+            this.m_Conexion.cerrarConexion();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            c = -1;
+        }
+*/
         return c;
 
     }

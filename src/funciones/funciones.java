@@ -360,7 +360,7 @@ public class funciones {
                     System.out.println("INSERTANDO INFORME");
                 inf.AsigParametros(pat);
                 if (-1 != inf.InsertarInforme()) {
-                    respuesta = "<b>GRUPO NUEVO INFORME</b>";
+                    respuesta = "<b>NUEVO INFORME INSERTADO</b>";
                 } else {
                     respuesta = "<b>ERROR AL INSERTAR INFORME</b>";
                 }
@@ -460,10 +460,10 @@ public class funciones {
                         + "<li>Eliminar:  ELIREV[\"ID\"] </li>"
                         + "</ol>"
                         + "<h3>10.- INFORME</h3><ol>"
-                        + "<li>Listar:      LISINF[\"*\"] </li>"
-                        + "<li>Insertar:    INSINF[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
-                        + "<li>Modificar:   MODINF[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
-                        + "<li>Eliminar:    ELIINF[\"ID\"] </li>"
+                        + "<li>Listar:      LISTINFOR[\"*\"] </li>"
+                        + "<li>Insertar:    INSINFOR[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
+                        + "<li>Modificar:   MODINFOR[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
+                        + "<li>Eliminar:    ELIINFOR[\"ID\"] </li>"
                         + "</ol>"
                         + "<h3>11.- REPORTES</h3><ol>"
                         + "<li>Reporte Revaluo:      REPREV[\"Gestion Revaluo\"] </li>"
