@@ -357,12 +357,12 @@ public class funciones {
                 break;
 /// GESTIONAR INFORME
             case "INSINFOR":
-                    System.out.println("INSERTANDO INFORME");
+                System.out.println("INSERTANDO INFORME");
                 inf.AsigParametros(pat);
                 if (-1 != inf.InsertarInforme()) {
                     respuesta = "<b>NUEVO INFORME INSERTADO</b>";
                 } else {
-                    respuesta = "<b>ERROR AL INSERTAR INFORME</b>";
+                    respuesta = "<b>ERROR AL INSERTAR EL INFORME</b>";
                 }
                 break;
             case "LISTINFOR":
@@ -460,7 +460,11 @@ public class funciones {
                         + "<li>Eliminar:  ELIREV[\"ID\"] </li>"
                         + "</ol>"
                         + "<h3>10.- INFORME</h3><ol>"
+<<<<<<< Updated upstream
                         + "<li>Listar:      LISTINFOR[\"*\"] </li>"
+=======
+                        + "<li>Listar:      LISINFOR[\"*\"] </li>"
+>>>>>>> Stashed changes
                         + "<li>Insertar:    INSINFOR[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
                         + "<li>Modificar:   MODINFOR[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
                         + "<li>Eliminar:    ELIINFOR[\"ID\"] </li>"
