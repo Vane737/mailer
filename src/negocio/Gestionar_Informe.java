@@ -7,13 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import datos.conexion;
 import funciones.cadenas;
-<<<<<<< Updated upstream
-import java.sql.Timestamp;
-=======
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.DateFormat;
->>>>>>> Stashed changes
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import presentacion.hilo;
@@ -144,18 +140,11 @@ public class Gestionar_Informe {
         int c = 1;
 
         // Preparo la consulta
-<<<<<<< Updated upstream
-        String sql = "UPDATE informes SET \n"
-                + "descripcion = ? \n"
-                + "url = ? \n"
-                + "updated_at = ? \n"
-=======
         String sql;
         sql = "UPDATE informes SET \n"
                 + "descripcion = ?,\n"
                 + "url = ?,\n"
                 + "updated_at = ?,\n"
->>>>>>> Stashed changes
                 + "id_revaluo = ? \n"
                 + "WHERE id = ?";
         try {
@@ -165,7 +154,6 @@ public class Gestionar_Informe {
             ps.setString(1, this.descripcion);
             ps.setString(2, this.url);
             ps.setTimestamp(3, Timestamp.valueOf(this.fecha_hora_actual));
-<<<<<<< Updated upstream
             ps.setInt(4, this.id_revaluo);
             ps.setInt(5, this.id);
             int rows = ps.executeUpdate();

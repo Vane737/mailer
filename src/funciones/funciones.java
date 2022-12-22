@@ -455,16 +455,12 @@ public class funciones {
                         + "</ol>"
                         + "<h3>9.- REVALUO</h3><ol>"
                         + "<li>Listar:    LISTREV[\"*\"] </li>"
-                        + "<li>Insertar:  INSREV[\"ID\",\"Descripcion\",\"FechaRevaluo\",\"Costo\",\"CostoActualizado\",\"DepreciacionAcu\",\"ValorNeto\",\"IdInmueble\"] </li>"
-                        + "<li>Modificar: MODREV[\"ID\",\"Descripcion\",\"FechaRevaluo\",\"Costo\",\"CostoActualizado\",\"DepreciacionAcu\",\"ValorNeto\",\"IdInmueble\"] </li>"
+                        + "<li>Insertar:  INSREV[\"ID\",\"FechaRevaluo\",\"Costo\",\"CostoActualizado\",\"DepreciacionAcu\",\"ValorNeto\",\"IdInmueble\"] </li>"
+                        + "<li>Modificar: MODREV[\"ID\",\"FechaRevaluo\",\"Costo\",\"CostoActualizado\",\"DepreciacionAcu\",\"ValorNeto\",\"IdInmueble\"] </li>"
                         + "<li>Eliminar:  ELIREV[\"ID\"] </li>"
                         + "</ol>"
                         + "<h3>10.- INFORME</h3><ol>"
-<<<<<<< Updated upstream
                         + "<li>Listar:      LISTINFOR[\"*\"] </li>"
-=======
-                        + "<li>Listar:      LISINFOR[\"*\"] </li>"
->>>>>>> Stashed changes
                         + "<li>Insertar:    INSINFOR[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
                         + "<li>Modificar:   MODINFOR[\"ID\",\"Descripcion\",\"Url\",\"IdRevaluo\"] </li>"
                         + "<li>Eliminar:    ELIINFOR[\"ID\"] </li>"

@@ -52,7 +52,7 @@ public class Gestionar_Revaluo {
 
         // Preparo la consulta
         String sql = "INSERT INTO revaluos(\n"
-                + "	id, descripcion, \"fechaRevaluo\", costo, \"costoActualizado\", \"depreciacionAcumulada\", \"valorNeto\", \"idInmueble\"\n"
+                + "	id, descripcion, \"fechaRevaluo\", costo, \"costoActualizado\", \"depreciacionAcumulada\", \"valorNeto\", \"idInmueble\")\n"
                 + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -61,7 +61,7 @@ public class Gestionar_Revaluo {
             // El segundo parametro de usa cuando se tienen tablas que generan llaves primarias
             // es bueno cuando nuestra bd tiene las primarias aut	oincrementables
             ps.setInt(1, this.id);
-            ps.setString(2, "a");
+            ps.setString(2, "DESCRIPCION POR DEFECTO");
             ps.setString(3, this.fecha);
             ps.setFloat(4, this.costo);
             ps.setFloat(5, this.costoActualizado);
